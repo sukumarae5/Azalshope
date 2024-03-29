@@ -9,6 +9,8 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
+import { Provider } from "react-redux";
+import { store } from "../../../Ecommerce/frontend/src/Redux";
 import Homescreen from './screens/Homescreen'
 import Productscreen from './screens/Productscreen'
 import Cartscreen from './screens/Cartscreen'
@@ -31,7 +33,9 @@ const router = createBrowserRouter(
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
+    <Provider store={store}>
     <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );
 
