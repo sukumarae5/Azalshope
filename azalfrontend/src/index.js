@@ -10,7 +10,7 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import { Provider } from "react-redux";
-import { store } from "../../../Ecommerce/frontend/src/Redux";
+import { store } from "../src/redux/index";
 import Homescreen from './screens/Homescreen'
 import Productscreen from './screens/Productscreen'
 import Cartscreen from './screens/Cartscreen'
