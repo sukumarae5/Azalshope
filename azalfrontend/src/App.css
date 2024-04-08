@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+.cartsearchicon{
+  position: relative;
+  top:60%;
+  left:200px;
+  transition: translatey(-50%);
+}
