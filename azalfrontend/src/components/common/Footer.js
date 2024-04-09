@@ -5,20 +5,21 @@ import React from 'react';
 const Footer = () => {
   return (
     <div>
-    <div className='Footer bg-warning w-full' style={{background:'#00B0B5', color:'white', padding:'3rem 0',marginTop:'14rem'}}>
-      <div className='container '>
-        <div className='row'>
+    <div className='Footer bg-warning w-full' style={{background:'#00B0B5', color:'white', padding:'3rem 0',marginTop:'1rem'}}>
+      <div className='Footercontainer '>
+        <div className='row footer'>
           <div className='col-md-6 col-lg-5 col-12 ft-1'>
-            <h2><span style={{color:"#49bede"}}><b>Asal</b></span><b>Shope</b></h2>
+            <h2><span style={{color:"#49bede"}}><b>Azal</b></span><b>Shope</b></h2>
             <p style={{padding:'1rem 2rem 1rem 0'}}>It is the best shopping app which have lots of fun in choosing your own and favourite products.And welcome to AZAL shope app.</p>
             <div className='footer-icons' style={{ color:'red' }}>
-            <i class="fa-brands fa-facebook" style={{padding:' 0.5rem', background:'#49bede', color:'white', margin:'0 0.5rem', borderRadius:'50%'}}></i>
+            <i class="fa-brands fa-facebook " style={{padding:' 0.5rem', background:'#49bede', color:'white', margin:'0 0.5rem', borderRadius:'50%'}}></i>
             <i class="fa-brands fa-google" style={{padding:' 0.5rem', background:'#49bede', color:'white', margin:'0 0.5rem',  borderRadius:'50%'}}></i>
             <i class="fa-brands fa-instagram" style={{padding:'0.5rem', background:'#49bede', color:'white', margin:'0 0.5rem',  borderRadius:'50%'}}></i>
             <i class="fa-brands fa-twitter" style={{padding:'0.5rem', background:'#49bede', color:'white', margin:'0 0.5rem', borderRadius:'50%'}}></i>
             
             </div>
             </div>
+            
             <div className='col-md-6 col-lg-3 col-12 ft-2'>
               <h2 style={{color:'#49bede'}}><b>Quick Links</b></h2>
               <ul style={{listStyle:'none', paddingLeft:'0', }}>
