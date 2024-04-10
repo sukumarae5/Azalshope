@@ -1,4 +1,11 @@
+.App {
+  text-align: center;
+}
 
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -47,7 +54,7 @@ p {
   padding: 0;
 }
 
-.container {
+/* .homescreen-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -55,7 +62,7 @@ p {
   height: 100vh;
   background: linear-gradient(to bottom, #5b21b6, #1e40af);
   color: #fff;
-}
+} */
 
 .buttons-container {
   display: flex;
@@ -63,7 +70,7 @@ p {
   margin-top: 20px;
 }
 
-.button {
+.Homescreen-button {
   border: 1px solid #000;
   background: transparent;
   margin: 5px 5px;
@@ -102,7 +109,7 @@ p {
   font-size: 10px;
 }
 
-.buttons-container.active {
+.Homescreen-button.active {
   background-color: #1e293b;
   color: #fff;
 } 

@@ -11,7 +11,7 @@ const App = () => {
   useEffect(() => {
     (async () => {
       const pdata = await fetch(
-        "https://ecommerce-iota-sage-97.vercel.app/products"
+        "https://ecommerce-git-main-sukumarae5s-projects.vercel.app/products"
       );
       const finalProdData = await pdata.json();
       dispatch(productRedux(finalProdData));

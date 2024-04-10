@@ -10,7 +10,12 @@ const productslice = createSlice({
   initialState,
   reducers: {
     productRedux: (state, action) => {
-      state.allProducts = [...action.payload];
+      console.log(action.payload);
+      if(action.payload.message === "No products available"){
+        console.log("No products available");
+      }else{
+        state.allProducts = [...action.payload];
+      }
     },
   },
 });
