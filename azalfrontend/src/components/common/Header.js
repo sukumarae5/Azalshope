@@ -9,14 +9,15 @@ import { HiUser } from "react-icons/hi2";
 import { GoHeart } from "react-icons/go";
 import { BsHandbagFill } from "react-icons/bs";
 import { Link } from 'react-router-dom';
-
+import Badge from 'react-bootstrap/Badge';
+import { useSelector } from 'react-redux';
 const Header = () => {
   const [user, setUser] = useState(false);
 
   const userlogin = () => {
     setUser(!user);
   };
-
+  const use=useSelector(state=>{return state.products.cartitem})
   return (
     <div style={{ backgroundColor: "#00B0B5" }} className='text-white'>
       <div
@@ -76,10 +77,13 @@ const Header = () => {
               </InputGroup>
             </Form>
             <Nav className='mx-lg-4'>
-            <Nav.Link href="#bag" className="text-white fs-lg-2 mx-lg-2">
+            <Nav.Link className="text-white fs-lg-2 mx-lg-2">
                 <span className="icon-box">
+             
                   <BsHandbagFill size={24} />
+                  
                 </span>
+                <Badge bg="warning" text="dark" pill>{use.length}</Badge>
               </Nav.Link>
               <Nav.Link href="#heart" className="text-white fs-lg-2 mx-lg-2">
                 <span className="icon-box">

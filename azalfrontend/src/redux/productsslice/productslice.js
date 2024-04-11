@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   allProducts: [],
-  cartItem:[]
+  cartitem:[]
 };
 
 const productslice = createSlice({
@@ -16,10 +16,28 @@ const productslice = createSlice({
         console.log("No products available");
       }else{
         state.allProducts = [...action.payload];
+
       }
+   
+   
+    },
+
+    addcartitemRedux:(state,action)=>{
+      const check=state.cartitem.some((ele)=>{return ele.id===action.payload.id})
+      if(check)
+      {
+        alert('it is already exist in your cart')
+      }
+      else{
+        const total=action.payload.price
+        state.cartitem=[...state.cartitem,{...action.payload,quantity:1,total:total}]
+      }
+      console.log(action.payload)
+     
     },
   },
 });
 
-export const { productRedux } = productslice.actions;
+
+export const { productRedux ,addcartitemRedux} = productslice.actions;
 export default productslice.reducer;
