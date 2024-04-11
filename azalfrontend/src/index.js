@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import "./App.css"
 import {
   Route,
   RouterProvider,
@@ -16,6 +17,8 @@ import Productscreen from './screens/Productscreen'
 import Cartscreen from './screens/Cartscreen'
 import Checkoutscreen from './screens/Checkoutscreen'
 import Orderhistoryscreen from './screens/Orderhistoryscreen'
+import Login from "./screens/Login";
+import Register from "./screens/Register";
 
 
 const router = createBrowserRouter(
@@ -26,6 +29,8 @@ const router = createBrowserRouter(
       <Route path="/cartscreen" element={<Cartscreen />}/>
       <Route path="/checkoutscreen" element={<Checkoutscreen />}/>
       <Route path="/orderhistoryscreen" element={<Orderhistoryscreen />}/>
+      <Route path="/login" element={<Login />}/>
+      <Route path="/register" element={<Register />}/>
     </Route>
   )
 );

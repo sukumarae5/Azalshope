@@ -1,17 +1,43 @@
+// productslice.js
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  // write your initial state here
+  allProducts: [],
+  cartitem:[]
 };
 
-export const productslice = createSlice({
+const productslice = createSlice({
   name: "products",
   initialState,
   reducers: {
-    //write your redux here
+    productRedux: (state, action) => {
+      console.log(action.payload);
+      if(action.payload.message === "No products available"){
+        console.log("No products available");
+      }else{
+        state.allProducts = [...action.payload];
+
+      }
+   
+   
+    },
+
+    addcartitemRedux:(state,action)=>{
+      const check=state.cartitem.some((ele)=>{return ele.id===action.payload.id})
+      if(check)
+      {
+        alert('it is already exist in your cart')
+      }
+      else{
+        const total=action.payload.price
+        state.cartitem=[...state.cartitem,{...action.payload,quantity:1,total:total}]
+      }
+      console.log(action.payload)
+     
+    },
   },
 });
 
-//uncomment this line to use productslice
-// export const { } = productslice.actions; 
-export default productslice.reducer
+
+export const { productRedux ,addcartitemRedux} = productslice.actions;
+export default productslice.reducer;
