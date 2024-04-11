@@ -90,7 +90,7 @@ const Header = () => {
                   <GoHeart size={24} />
                 </span>
               </Nav.Link>
-            <Nav.Link as={Link} to="/login" className="text-white fs-lg-2 mx-lg-2">
+            <Nav.Link as={Link} to="" className="text-white fs-lg-2 mx-lg-2">
                 <div className="d-flex flex-column" style={{ position: "relative" }}>
                   <div>
                     <HiUser onClick={userlogin} size={24} />
@@ -107,9 +107,9 @@ const Header = () => {
                   >
                     {user && (
                       
-                      <span className="btn-warning text-white fw-bold">
+                      <Link to='/login' className="btn-warning text-white fw-bold">
                         Login
-                      </span>
+                      </Link>
                     
                     )}
                   </div>
