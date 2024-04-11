@@ -8,6 +8,8 @@ import { InputGroup } from "react-bootstrap";
 import { HiUser } from "react-icons/hi2";
 import { GoHeart } from "react-icons/go";
 import { BsHandbagFill } from "react-icons/bs";
+import { Link } from 'react-router-dom';
+
 
 const Header = () => {
   const [user, setUser] = useState(false);
@@ -75,7 +77,7 @@ const Header = () => {
               </InputGroup>
             </Form>
             <Nav className='mx-lg-4'>
-            <Nav.Link href="#bag" className="text-white fs-lg-2 mx-lg-2">
+            <Nav.Link as={Link} to='/Cartscreen' className="text-white fs-lg-2 mx-lg-2">
                 <span className="icon-box">
                   <BsHandbagFill size={24} />
                 </span>
@@ -109,9 +111,7 @@ const Header = () => {
                     )}
                   </div>
                 </div>
-              </Nav.Link>
-
-              
+              </Nav.Link>             
               
             </Nav>
           </Navbar.Collapse>
