@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import "../App.css";
 
 const Homescreen = () => {
@@ -58,14 +59,17 @@ const Homescreen = () => {
       </div>
 
       <div className="items-container">
+      
         {filterProduct.map((item,idx)=>(
           <div
           key={`items-${idx}`} className="item"
           >
             <p>{item.title}</p>
             <p className="category">{item.category}</p>
+            
           </div>
         ))}
+       
       </div>
     </>
   );
