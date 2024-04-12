@@ -7,6 +7,7 @@ const initialState = {
   username: "",
   name: "",
   image: "",
+  phone: "",
 };
 
 export const userslice = createSlice({
@@ -15,19 +16,20 @@ export const userslice = createSlice({
   reducers: {
     //Login and Logout redux code here
     loginRedux: (state, action) => {
-      state.id = action.payload.id;
-      state.username = action.payload.username;
-      state.email = action.payload.email;
-      state.name = action.payload.name;
-      state.image = action.payload.image;
+      state.id = action.payload[0].id;
+      state.username = action.payload[0].username;
+      state.email = action.payload[0].email;
+      state.name = action.payload[0].firstName + " " + action.payload[0].lastName;
+      state.phone = action.payload[0].phone;
+      state.image = action.payload[0].image;
     },
     logoutRedux: (state, action) => {
       // console.log(action.payload);
       state.id = "";
       state.username = "";
       state.email = "";
-      state.fistname = "";
-      state.lastname = "";
+      state.name = "";
+      state.phone = "";
       state.image = "";
     },
   },

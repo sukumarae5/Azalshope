@@ -9,10 +9,16 @@ import { FaFacebook } from "react-icons/fa";
 import { ImTwitter } from "react-icons/im";
 import { TfiEmail } from "react-icons/tfi";
 import { Button, Card, Container } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { loginRedux } from "../redux/userslice/userslice";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const adminuser = process.env.REACT_APP_ADMIN_USERNAME;
   const adminpassword = process.env.REACT_APP_ADMIN_PASSWORD;
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [sign, setSign] = useState({
     username: "",
@@ -26,17 +32,8 @@ const Login = () => {
 
   const subm = async (e) => {
     e.preventDefault();
-    console.log(sign);
-    if (username == adminuser && password == adminpassword) {
-      const fetchdata = await fetch(
-        "https://ecommerce-sandy-omega.vercel.app/login",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(sign),
-        }
-      ).then((res) => res.json());
-      console.log(fetchdata);
+    if (username === adminuser && password === adminpassword) {
+      alert("Logged as Admin ");
     } else {
       if (username && password) {
         const fetchdata = await fetch(
@@ -47,7 +44,10 @@ const Login = () => {
             body: JSON.stringify(sign),
           }
         ).then((res) => res.json());
-        console.log(fetchdata);
+        dispatch(loginRedux(fetchdata));
+        setTimeout(() => {
+          navigate("/");
+        }, 1000);
 
         if (fetchdata.message) {
           alert(fetchdata.message);
