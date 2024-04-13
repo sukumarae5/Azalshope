@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import "../App.css";
-import img1 from "../assets/laptop.jpeg";
 import { useDispatch } from "react-redux";
 import { addcartitemRedux } from "../redux/productsslice/productslice";
 
@@ -74,6 +73,7 @@ const Homescreen = ({
 
   useEffect(() => {
     filterProducts();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedItem]);
   return (
     <>
@@ -100,7 +100,7 @@ const Homescreen = ({
       >
         {filterProduct.map((item, idx) => (
           <div key={`items-${idx}`} className="item">
-            <img classname="img1" id="img1" alt="img" src={img1} />
+            <img classname="image" id="img1" alt="img" src={item.images} style={{  height: "300px",width: "350px"}}/>
             <p>{item.title}</p>
             <h4>{item.brand}</h4>
 
@@ -108,7 +108,7 @@ const Homescreen = ({
             <b>
               <p>Price:&#8377;{item.price}</p>
             </b>
-            <p>{item.discountPercentage}%OFF</p>
+            <p className="text-danger">{item.discountPercentage}%OFF</p>
             <p>{getRating(item.rating)}</p>
             <p className="category">{item.category}</p>
             <button
