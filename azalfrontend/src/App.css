@@ -97,7 +97,7 @@ p {
   min-width: 100px;
   min-height: 50px;
   margin: 4px 10px;
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
   border-radius: 5px;
   display: flex;
   flex-direction: column;

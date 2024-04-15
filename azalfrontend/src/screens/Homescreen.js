@@ -99,7 +99,7 @@ const Homescreen = ({
         }}
       >
         {filterProduct.map((item, idx) => (
-          <div key={`items-${idx}`} className="item">
+          <div key={`items-${idx}`} className="item" style={{boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px"}}>
             <img classname="image" id="img1" alt="img" src={item.images} style={{  height: "300px",width: "350px"}}/>
             <p>{item.title}</p>
             <h4>{item.brand}</h4>
