@@ -7,6 +7,7 @@ import { addcartitemRedux } from "../redux/productsslice/productslice";
 
 const Homescreen = ({id,brand,description,image,rating,title,thumbnail,price}) => {
   const data = useSelector((state) => state.products.allProducts);
+  
   const dispatch=useDispatch()
   // const click=()=>{
   //   dispatch(addcartitemRedux({
@@ -105,16 +106,17 @@ const Homescreen = ({id,brand,description,image,rating,title,thumbnail,price}) =
            <p>{item.discountPercentage}%OFF</p>
             <p>{getRating(item.rating)}</p>
             <p className="category">{item.category}</p>
+            
             <button onClick={ ()=>{
     dispatch(addcartitemRedux({
-   id:id,
-    brand:brand,
-    description:description,
-     image:image,
-     rating:rating,
-     title:title,
-     thumbnail:thumbnail,
-    price:price
+   id:item.id,
+    brand:item.brand,
+    description:item.description,
+     image:img1,
+     rating:item.rating,
+     title:item.title,
+     thumbnail:item.thumbnail,
+    price:item.price
     }))
   }} className='btn btn-primary'>Add to Cart</button>
           </div>

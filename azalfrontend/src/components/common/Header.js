@@ -8,16 +8,21 @@ import { InputGroup } from "react-bootstrap";
 import { HiUser } from "react-icons/hi2";
 import { GoHeart } from "react-icons/go";
 import { BsHandbagFill } from "react-icons/bs";
-import { Link } from 'react-router-dom';
-import Badge from 'react-bootstrap/Badge';
-import { useSelector } from 'react-redux';
+
+import { useSelector } from "react-redux";
+// import { Link } from 'react-router-dom';
+// import Cartscreen from '../../screens/Cartscreen';
+
+
 const Header = () => {
+  const cartdata=useSelector ((state)=>{return state.products.cartitem})
+  console.log(cartdata);
   const [user, setUser] = useState(false);
 
   const userlogin = () => {
     setUser(!user);
   };
-  const use=useSelector(state=>{return state.products.cartitem})
+
   return (
     <div style={{ backgroundColor: "#00B0B5" }} className='text-white'>
       <div
@@ -36,7 +41,7 @@ const Header = () => {
       </div>
       <Navbar expand="lg" className="justify-content-between">
         <Container fluid>
-          <Navbar.Brand as={Link} to="/" className='text-white fw-bold mx-lg-5 fs-lg-3' style={{ fontFamily: 'Itim,cursive', fontSize: '35px', fontWeight: 'bold' }}>Trend Store</Navbar.Brand>
+          <Navbar.Brand href="#" className='text-white fw-bold mx-lg-5 fs-lg-3' style={{ fontFamily: 'Itim,cursive', fontSize: '35px', fontWeight: 'bold' }}>Trend Store</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
@@ -60,7 +65,7 @@ const Header = () => {
                     color: "white",
                     height: "50px",
                     fontSize: "20px",
-                    border: `1px solid white`,
+                    border:" 1px solid white",
                     paddingLeft: "",
                   }}
                   type="search"
@@ -77,20 +82,18 @@ const Header = () => {
               </InputGroup>
             </Form>
             <Nav className='mx-lg-4'>
-            <Nav.Link href="#bag" className="text-white fs-lg-2 mx-lg-2">
+            <Nav.Link  className="text-white fs-lg-2 mx-lg-2">
                 <span className="icon-box">
-             
-                  <BsHandbagFill size={24} />
-                  
-                </span>
-                <Badge bg="warning" text="dark" pill>{use.length}</Badge>
+                  <BsHandbagFill size={24} />{cartdata.length}</span>
+
               </Nav.Link>
-              <Nav.Link href="#heart" className="text-white fs-lg-2 mx-lg-2">
+              {/* as={Link(<Cartscreen/>)} */}
+              <Nav.Link  className="text-white fs-lg-2 mx-lg-2">
                 <span className="icon-box">
                   <GoHeart size={24} />
                 </span>
               </Nav.Link>
-            <Nav.Link as={Link} to="/login" className="text-white fs-lg-2 mx-lg-2">
+            <Nav.Link href="#login" className="text-white fs-lg-2 mx-lg-2">
                 <div className="d-flex flex-column" style={{ position: "relative" }}>
                   <div>
                     <HiUser onClick={userlogin} size={24} />
