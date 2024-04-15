@@ -3,8 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   allProducts: [],
-  cartitem:[]
-  
+  cartitem: [],
 };
 
 const productslice = createSlice({
@@ -12,15 +11,11 @@ const productslice = createSlice({
   initialState,
   reducers: {
     productRedux: (state, action) => {
-      console.log(action.payload);
-      if(action.payload.message === "No products available"){
+      if (action.payload.message === "No products available") {
         console.log("No products available");
-      }else{
+      } else {
         state.allProducts = [...action.payload];
-
       }
-   
-   
     },
 
     addcartitemRedux:(state,action)=>{
