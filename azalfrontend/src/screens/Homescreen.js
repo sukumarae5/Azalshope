@@ -95,7 +95,7 @@ const Homescreen = ({
         style={{
           display: "grid",
           gridTemplateRows: "1fr ",
-          gridTemplateColumns: "repeat( auto-fill,minmax(250px,1fr))",
+          gridTemplateColumns: "repeat( auto-fill,minmax(200px,1fr))",
         }}
       >
         {filterProduct.map((item, idx) => (
@@ -109,7 +109,7 @@ const Homescreen = ({
               id="img1"
               alt="img"
               src={item.images}
-              style={{ height: "200px", width: "250px" }}
+              style={{ height: "40%", width: "100%" }}
             />
             <p>{item.title}</p>
             <h4>{item.brand}</h4>
