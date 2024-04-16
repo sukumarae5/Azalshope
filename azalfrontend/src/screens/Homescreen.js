@@ -15,8 +15,8 @@ const Homescreen = ({
   price,
 }) => {
   const data = useSelector((state) => state.products.allProducts);
-  const dispatch = useDispatch();
-
+  const dispatch = useDispatch()
+  
   const userData = useSelector((state) => state.users);
   if (userData !== "") {
     console.log(userData);
@@ -74,7 +74,7 @@ const Homescreen = ({
   useEffect(() => {
     filterProducts();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedItem]);
+  }, [selectedItem,filterProduct]);
   return (
     <>
       <div className="buttons-container">
