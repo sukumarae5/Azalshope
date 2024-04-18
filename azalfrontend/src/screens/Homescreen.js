@@ -2,10 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import "../App.css";
 import { useDispatch } from "react-redux";
+import { useNavigate } from 'react-router-dom'
 import { addOneProduct, addcartitemRedux } from "../redux/productsslice/productslice";
-import { useNavigate } from "react-router-dom"
-
-
 
 const Homescreen = ({
   id,
@@ -19,11 +17,9 @@ const Homescreen = ({
 }) => {
   const data = useSelector((state) => state.products.allProducts);
   const dispatch = useDispatch();
+  const navigate = useNavigate()
 
-
-const navigate=useNavigate()
-
- async function preview(key){
+  async function preview(key){
     const response=await fetch(`https://ecommerce-sandy-omega.vercel.app/products/${key}`)
     .then(res=> res.json())
     .then(res1=>res1)
@@ -31,7 +27,6 @@ const navigate=useNavigate()
     dispatch(addOneProduct(response))
     navigate('/Productscreen')
   }
-
   
   const userData = useSelector((state) => state.users);
   if (userData !== "") {
@@ -115,13 +110,11 @@ const navigate=useNavigate()
         }}
       >
         {filterProduct.map((item, idx) => (
-          <div key={`items-${idx}`} className="item" onClick={()=>{preview(item.id)}}>
-          
-          
           <div
             key={`items-${idx}`}
             className="item"
             style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" }}
+            onClick={()=>{preview(item.id)}}
           >
             <img
               classname="image"
@@ -132,6 +125,7 @@ const navigate=useNavigate()
             />
             <p>{item.title}</p>
             <h4>{item.brand}</h4>
+
             <p>Stock:{item.stock}</p>
             <b>
               <p>Price:&#8377;{item.price}</p>
@@ -170,14 +164,10 @@ const navigate=useNavigate()
               </span>
               <p class="text">Add to Cart</p>
             </button>
-           
           </div>
           </div>
-       
-       
+        ))}
       </div>
-  ))}
-  </div>
     </>
   );
 };
