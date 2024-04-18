@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux"; // Moved useDispatch here
-import { useParams } from "react-router-dom";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { addcartitemRedux } from "../redux/productsslice/productslice";
 
@@ -10,7 +9,6 @@ const Productscreen = () => {
 
   const [thumbnailImage, setThumbnailImage] = useState("");
 
-  const { id } = useParams();
   const product = useSelector((state) => state.products.oneProduct);
   console.log(product)
   
