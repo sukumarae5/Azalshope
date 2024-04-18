@@ -59,12 +59,12 @@ const Productscreen = () => {
               <Card.Body>
                 <Row >
                   <Col xs={3} md={2} lg={1}>
-                    <img src={product.images} onClick={thumbnailclick} style={{ width: "50px", height: "50px", marginBottom: "10px", cursor: "pointer" }}/>
+                    <img src={product.images} onClick={thumbnailclick} style={{ width: "50px", height: "50px", marginBottom: "10px", cursor: "pointer"}} alt="img1"/>
                   </Col>
                   <Col xs={9} md={10} lg={11}>
                     <img
                       src={thumbnailImage || product.thumbnail}
-                      alt="Main Image"
+                      alt="Main "
                       style={{ width: '100%', height: '80vh', paddingTop: '20px' }}
                     />
                   </Col>
