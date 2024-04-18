@@ -5,7 +5,7 @@ import Footer from "./components/common/Footer";
 import { useDispatch } from "react-redux";
 import { productRedux } from "./redux/productsslice/productslice";
 import { useEffect } from "react";
-import Cartscreen from "./screens/Cartscreen";
+
 
 const App = () => {
   const dispatch = useDispatch();
@@ -24,7 +24,7 @@ const App = () => {
       <Header />
       <Outlet />
       <Footer />
-    <Cartscreen/>
+    
       
       
     </>

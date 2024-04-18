@@ -132,7 +132,7 @@ const Header = () => {
               </InputGroup>
             </Form>
             <Nav className="mx-lg-4">
-              <Nav.Link className="text-white fs-lg-2 mx-lg-2">
+              <Nav.Link as={Link} to="/cartscreen" className="text-white fs-lg-2 mx-lg-2">
                 <span className="icon-box">
                   <BsHandbagFill size={24} />
                 </span>
@@ -140,7 +140,7 @@ const Header = () => {
                   {use.length}
                 </Badge>
               </Nav.Link>
-              {/* as={Link(<Cartscreen/>)} */}
+              
               <Nav.Link  className="text-white fs-lg-2 mx-lg-2">
                 <span className="icon-box">
                   <GoHeart size={24} />

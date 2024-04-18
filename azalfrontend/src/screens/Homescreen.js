@@ -123,14 +123,14 @@ const Homescreen = ({
             <p className="category">{item.category}</p>
             <button onClick={ ()=>{
     dispatch(addcartitemRedux({
-   id:id,
-    brand:brand,
-    description:description,
-     image:image,
-     rating:rating,
-     title:title,
-     thumbnail:thumbnail,
-    price:price
+   id:item.id,
+    brand:item.brand,
+    description:item.description,
+     image:item.images,
+     rating:item.rating,
+     title:item.title,
+     thumbnail:item.thumbnail,
+    price:item.price
     }))
   }} className='btn btn-primary'>Add to Cart</button>
           </div>

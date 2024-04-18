@@ -29,10 +29,14 @@ const productslice = createSlice({
         console.log(action.payload)  
     }    
     },
-    removeRedux:(state,action)=>{
-
-    return initialState
-
+    removeRedux: (state, action) => {
+      const idsToRemove = action.payload;
+      idsToRemove.forEach((id) => {
+        const index = state.cartitem.findIndex((ele) => ele.id === id);
+        if (index !== -1) {
+          state.cartitem.splice(index, 1);
+        }
+      });
     },
     incrqtyRedux:(state,action)=>{
       const index=state.cartitem.findIndex(ele=>{return ele.id===action.payload})
