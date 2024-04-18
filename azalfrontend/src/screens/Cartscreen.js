@@ -14,7 +14,7 @@ import { useState } from 'react';
 const Cartscreen = () => {
   const dispatch = useDispatch();
   const cartdata = useSelector((state) => state.products.cartitem);
-  console.log(cartdata)
+  
   const total = cartdata.reduce((acc, ele) => acc + Number(ele.total), 0);
 
 
