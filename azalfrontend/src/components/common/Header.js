@@ -8,18 +8,36 @@ import { InputGroup } from "react-bootstrap";
 import { HiUser } from "react-icons/hi2";
 import { GoHeart } from "react-icons/go";
 import { BsHandbagFill } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 import Badge from "react-bootstrap/Badge";
 import { useSelector } from "react-redux";
+
+
 const Header = () => {
+  
   const [user, setUser] = useState(false);
+ 
 
   const userlogin = () => {
     setUser(!user);
   };
+ 
   const use = useSelector((state) => {
     return state.products.cartitem;
   });
+ 
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+  };
+
+ 
   return (
     <div style={{ backgroundColor: "#00B0B5" }} className="text-white">
       <div
@@ -160,15 +178,22 @@ const Header = () => {
                       zIndex: 1,
                       float: "right",
                     }}
-                  >
+                  > 
                     {user && (
                       <Link
                         to="/login"
                         className="btn-warning text-white fw-bold"
                       >
-                        Login
+                       
+                       {isLoggedIn ? (
+        <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
+      ) : (
+        <span onClick={handleLogin}>Login</span>
+      )}
                       </Link>
+            
                     )}
+                
                   </div>
                 </div>
               </Nav.Link>
