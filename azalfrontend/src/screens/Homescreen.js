@@ -16,6 +16,7 @@ const Homescreen = ({
 }) => {
   const data = useSelector((state) => state.products.allProducts);
   const dispatch = useDispatch()
+  //Hey there
   
   const userData = useSelector((state) => state.users);
   if (userData !== "") {
@@ -74,7 +75,7 @@ const Homescreen = ({
   useEffect(() => {
     filterProducts();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedItem,filterProduct]);
+  }, [selectedItem]);
   return (
     <>
       <div className="buttons-container">
