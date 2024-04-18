@@ -16,7 +16,7 @@ const Homescreen = ({
 }) => {
   const data = useSelector((state) => state.products.allProducts);
   const dispatch = useDispatch()
-  //Hey there
+  
   
   const userData = useSelector((state) => state.users);
   if (userData !== "") {

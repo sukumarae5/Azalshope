@@ -10,7 +10,7 @@ const Footer = () => {
             <h2><span style={{color:"#49bede",margin:'10px',fontFamily: "Inria serif",fontSize: "40px"}}><b>Azal</b></span><b style={{fontFamily: "Inria serif",fontSize: "40px"}}>Shope</b></h2>
             <p style={{padding:'1rem 2rem 1rem 0',margin:'10px',fontWeight: "bold"}}>It is the best shopping app which have lots of fun in choosing your own and favourite products.And welcome to AZAL shope app.</p>
             <div className='footer-icons' style={{ color:'red' }}>
-            <i class="fa-brands fa-facebook " style={{padding:' 0.5rem', background:'#49bede', color:'white', margin:'0 0.5rem', borderRadius:'50%',margin:'10px'}}></i>
+            <i class="fa-brands fa-facebook " style={{padding:' 0.5rem', background:'#49bede', color:'white', margin:'0 0.5rem', borderRadius:'50%'}}></i>
             <i class="fa-brands fa-google" style={{padding:' 0.5rem', background:'#49bede', color:'white', margin:'0 0.5rem',  borderRadius:'50%'}}></i>
             <i class="fa-brands fa-instagram" style={{padding:'0.5rem', background:'#49bede', color:'white', margin:'0 0.5rem',  borderRadius:'50%'}}></i>
             <i class="fa-brands fa-twitter" style={{padding:'0.5rem', background:'#49bede', color:'white', margin:'0 0.5rem', borderRadius:'50%'}}></i>
