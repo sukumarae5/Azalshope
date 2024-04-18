@@ -91,7 +91,7 @@ const navigate=useNavigate()
   useEffect(() => {
     filterProducts();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedItem,filterProduct]);
+  }, [selectedItem]);
   return (
     <>
       <div className="buttons-container">
