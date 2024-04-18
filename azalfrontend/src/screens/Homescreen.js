@@ -118,7 +118,7 @@ const navigate=useNavigate()
         {filterProduct.map((item, idx) => (
           <div key={`items-${idx}`} className="item" onClick={()=>{preview(item.id)}}>
           
-            <img classname="img1" id="img1" alt="img" src={img1} />
+          
           <div
             key={`items-${idx}`}
             className="item"
@@ -174,10 +174,11 @@ const navigate=useNavigate()
            
           </div>
           </div>
-        ))}
+       
        
       </div>
-      
+  ))}
+  </div>
     </>
   );
 };
