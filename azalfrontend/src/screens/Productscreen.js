@@ -89,7 +89,7 @@ const Productscreen = () => {
                   <Card.Text style={{color:'red', fontSize:'20px'}}>Discount percentage: {product.discountPercentage}%</Card.Text>
                   <Card.Text style={{color:'green'}}>Price:  {product.price}</Card.Text>
                   <Row><Col md={6} sm={6}>
-                  <Button style={{ width: '150px'}} onClick={additemHandlersingle }>Add to cart</Button><br/>
+                  <Button style={{ width: '150px',marginBottom:"20px"}} onClick={additemHandlersingle }>Add to cart</Button><br/>
                   </Col><Col md={6} sm={6}>
                   <Button style={{width:'150px'}} > Buy Now</Button>
                   </Col></Row>
