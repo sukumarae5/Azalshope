@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import "../App.css";
 import { useDispatch } from "react-redux";
-import { addcartitemRedux } from "../redux/productsslice/productslice";
+import { addOneProduct, addcartitemRedux } from "../redux/productsslice/productslice";
+import { useNavigate } from "react-router-dom"
+
+
 
 const Homescreen = ({
   id,
@@ -15,8 +19,20 @@ const Homescreen = ({
   price,
 }) => {
   const data = useSelector((state) => state.products.allProducts);
-  const dispatch = useDispatch()
-  //Hey there
+  const dispatch = useDispatch();
+
+
+const navigate=useNavigate()
+
+ async function preview(key){
+    const response=await fetch(`https://ecommerce-sandy-omega.vercel.app/products/${key}`)
+    .then(res=> res.json())
+    .then(res1=>res1)
+    console.log(response)
+    dispatch(addOneProduct(response))
+    navigate('/Productscreen')
+  }
+ 
   
   const userData = useSelector((state) => state.users);
   if (userData !== "") {
@@ -100,6 +116,9 @@ const Homescreen = ({
         }}
       >
         {filterProduct.map((item, idx) => (
+          <div key={`items-${idx}`} className="item" onClick={()=>{preview(item.id)}}>
+          
+          
           <div
             key={`items-${idx}`}
             className="item"
@@ -114,7 +133,6 @@ const Homescreen = ({
             />
             <p>{item.title}</p>
             <h4>{item.brand}</h4>
-
             <p>Stock:{item.stock}</p>
             <b>
               <p>Price:&#8377;{item.price}</p>
@@ -153,10 +171,14 @@ const Homescreen = ({
               </span>
               <p class="text">Add to Cart</p>
             </button>
+           
           </div>
           </div>
-        ))}
+       
+       
       </div>
+  ))}
+  </div>
     </>
   );
 };
