@@ -4,8 +4,8 @@ import Footer from "./components/common/Footer";
 
 import { useDispatch } from "react-redux";
 import { productRedux } from "./redux/productsslice/productslice";
-import { useEffect, useState } from "react";
-import Dashboard from "./dashboard/screens/Dashboard";
+import { useEffect } from "react";
+
 
 const App = () => {
   const dispatch = useDispatch();
