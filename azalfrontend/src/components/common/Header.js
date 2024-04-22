@@ -8,14 +8,13 @@ import { InputGroup } from "react-bootstrap";
 import { HiUser } from "react-icons/hi2";
 import { GoHeart } from "react-icons/go";
 import { BsHandbagFill } from "react-icons/bs";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import Badge from "react-bootstrap/Badge";
 import { useSelector } from "react-redux";
 
 
 const Header = () => {
-  const cartdata=useSelector ((state)=>{return state.products.cartitem})
-  console.log(cartdata);
+  
   const [user, setUser] = useState(false);
  
 
