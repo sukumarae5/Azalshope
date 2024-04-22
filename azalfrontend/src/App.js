@@ -4,8 +4,8 @@ import Footer from "./components/common/Footer";
 
 import { useDispatch } from "react-redux";
 import { productRedux } from "./redux/productsslice/productslice";
-import { useEffect } from "react";
-import Productscreen from "./screens/Productscreen";
+import { useEffect, useState } from "react";
+import Dashboard from "./dashboard/screens/Dashboard";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -22,7 +22,6 @@ const App = () => {
   return (
     <>
       <Header />
-      
       <Outlet />
       <Footer />
     

@@ -14,8 +14,7 @@ import { useSelector } from "react-redux";
 
 
 const Header = () => {
-  const cartdata=useSelector ((state)=>{return state.products.cartitem})
-  console.log(cartdata);
+  
   const [user, setUser] = useState(false);
  
 
@@ -125,7 +124,7 @@ const Header = () => {
                     color: "white",
                     height: "50px",
                     fontSize: "20px",
-                    border:" 1px solid white",
+                    border: `1px solid white`,
                     paddingLeft: "",
                   }}
                   type="search"
@@ -149,7 +148,7 @@ const Header = () => {
               </InputGroup>
             </Form>
             <Nav className="mx-lg-4">
-              <Nav.Link as={Link} to="/cartscreen" className="text-white fs-lg-2 mx-lg-2">
+              <Nav.Link className="text-white fs-lg-2 mx-lg-2">
                 <span className="icon-box">
                   <BsHandbagFill size={24} />
                 </span>
@@ -157,8 +156,7 @@ const Header = () => {
                   {use.length}
                 </Badge>
               </Nav.Link>
-              
-              <Nav.Link  className="text-white fs-lg-2 mx-lg-2">
+              <Nav.Link href="#heart" className="text-white fs-lg-2 mx-lg-2">
                 <span className="icon-box">
                   <GoHeart size={24} />
                 </span>
