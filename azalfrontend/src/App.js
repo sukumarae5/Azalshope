@@ -7,6 +7,8 @@ import { productRedux } from "./redux/productsslice/productslice";
 import { useEffect, useState } from "react";
 import Dashboard from "./dashboard/screens/Dashboard";
 
+
+
 const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -27,6 +29,7 @@ const App = () => {
   return (
     <>
       <Header />
+      
       <Outlet />
       <Footer />
     </>

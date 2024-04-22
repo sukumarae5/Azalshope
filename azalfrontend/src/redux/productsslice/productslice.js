@@ -34,12 +34,9 @@ const productslice = createSlice({
       }
       console.log(action.payload);
     },
-    addOneProduct:(state,action)=>{
-      console.log(action.payload);
-      state.oneProduct=action.payload
-    }
   },
 });
 
-export const { productRedux, addcartitemRedux,addOneProduct } = productslice.actions;
+
+export const { productRedux ,removeRedux,addcartitemRedux,incrqtyRedux,decrqtyRedux} =productslice.actions;
 export default productslice.reducer;
