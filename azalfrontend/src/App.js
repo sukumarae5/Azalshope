@@ -7,6 +7,7 @@ import { productRedux } from "./redux/productsslice/productslice";
 import { useEffect } from "react";
 
 
+
 const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -22,6 +23,7 @@ const App = () => {
   return (
     <>
       <Header />
+      
       <Outlet />
       <Footer />
     
