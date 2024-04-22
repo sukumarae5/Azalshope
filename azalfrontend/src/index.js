@@ -19,6 +19,7 @@ import Checkoutscreen from './screens/Checkoutscreen'
 import Orderhistoryscreen from './screens/Orderhistoryscreen'
 import Login from "./screens/Login";
 import Register from "./screens/Register";
+import Dashboard from './dashboard/screens/Dashboard'
 
 
 const router = createBrowserRouter(
@@ -31,6 +32,7 @@ const router = createBrowserRouter(
       <Route path="/orderhistoryscreen" element={<Orderhistoryscreen />}/>
       <Route path="/login" element={<Login />}/>
       <Route path="/register" element={<Register />}/>
+      <Route path="/dashboard" element={<Dashboard />}/>
     </Route>
   )
 );

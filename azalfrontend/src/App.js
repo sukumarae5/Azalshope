@@ -2,10 +2,10 @@ import Header from "./components/common/Header";
 import { Outlet } from "react-router-dom";
 import Footer from "./components/common/Footer";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { productRedux } from "./redux/productsslice/productslice";
-import { useEffect } from "react";
-import Productscreen from "./screens/Productscreen";
+import { useEffect, useState } from "react";
+import Dashboard from "./dashboard/screens/Dashboard";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -17,14 +17,18 @@ const App = () => {
       const finalProdData = await pdata.json();
       dispatch(productRedux(finalProdData));
     })();
-  });
+  }, [dispatch]);
+
+  const user = useSelector((state) => state.users);
+  console.log(user);
+
+
 
   return (
     <>
       <Header />
       <Outlet />
       <Footer />
-    
     </>
   );
 };
