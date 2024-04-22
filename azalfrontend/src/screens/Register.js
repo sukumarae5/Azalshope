@@ -44,6 +44,7 @@ const Register = () => {
       image: baseImage,
     };
     console.log(finaldata);
+    // eslint-disable-next-line no-unused-vars
     const fdata = await fetch(
       "https://ecommerce-git-main-sukumarae5s-projects.vercel.app/register",
       {
