@@ -5,12 +5,10 @@ import { CiUser } from "react-icons/ci";
 import { TfiEmail } from "react-icons/tfi";
 import { BiLock } from "react-icons/bi";
 import { TbGridDots } from "react-icons/tb";
-import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [baseImage, setBaseImage] = useState("");
   const fileInputRef = useRef(null);
-  const navigate = useNavigate()
 
   const [register, setRegister] = useState({
     firstName: "",
@@ -45,7 +43,7 @@ const Register = () => {
       ...register,
       image: baseImage,
     };
-    // console.log(finaldata);
+    console.log(finaldata);
     // eslint-disable-next-line no-unused-vars
     const fdata = await fetch(
       "https://ecommerce-git-main-sukumarae5s-projects.vercel.app/register",
@@ -55,17 +53,14 @@ const Register = () => {
         body: JSON.stringify(finaldata),
       }
     );
-    setTimeout(()=>{
-      navigate('/')
-    },1000)
   };
 
   const handleImageChange = async (e) => {
     const file = e.target.files[0];
     const base64 = await convertBase64(file);
     setBaseImage(base64);
-    // console.log(base64);
-    // console.log(file);
+    console.log(base64);
+    console.log(file);
   };
 
   const convertBase64 = (file) => {

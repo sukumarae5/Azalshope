@@ -33,7 +33,6 @@ const Login = () => {
   const subm = async (e) => {
     e.preventDefault();
     if (username === adminuser && password === adminpassword) {
-        navigate('/dashboard')
       alert("Logged as Admin ");
     } else {
       if (username && password) {

@@ -23,14 +23,14 @@ const Homescreen = ({
     const response=await fetch(`https://ecommerce-sandy-omega.vercel.app/products/${key}`)
     .then(res=> res.json())
     .then(res1=>res1)
-    // console.log(response)
+    console.log(response)
     dispatch(addOneProduct(response))
     navigate('/Productscreen')
   }
   
   const userData = useSelector((state) => state.users);
   if (userData !== "") {
-    // console.log(userData);
+    console.log(userData);
   }
 
   const [selectedItem, setSelectedItem] = useState([]);
