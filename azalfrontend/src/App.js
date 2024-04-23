@@ -2,13 +2,16 @@ import Header from "./components/common/Header";
 import { Outlet } from "react-router-dom";
 import Footer from "./components/common/Footer";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { productRedux } from "./redux/productsslice/productslice";
-import { useEffect } from "react";
-
+import { useEffect, useState } from "react";
+import Dashboard from "./dashboard/screens/Dashboard";
 
 const App = () => {
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.users);
+  const [admin, setAdmin] = useState(false);
+
   useEffect(() => {
     (async () => {
       const pdata = await fetch(
@@ -17,14 +20,28 @@ const App = () => {
       const finalProdData = await pdata.json();
       dispatch(productRedux(finalProdData));
     })();
-  });
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (user.username === "admin") {
+      setAdmin(true);
+    }
+  }, [user.username]);
 
   return (
     <>
-      <Header />
-      <Outlet />
-      <Footer />
-    
+      {admin ? (
+        <>
+          <Dashboard />
+          <Outlet/>
+        </>
+      ) : (
+        <>
+          <Header />
+          <Outlet />
+          <Footer />
+        </>
+      )}
     </>
   );
 };
