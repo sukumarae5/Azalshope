@@ -18,6 +18,15 @@ const productslice = createSlice({
         state.allProducts = [...action.payload];
       }
     },
+    removeRedux: (state, action) => {
+      const idsToRemove = action.payload;
+      idsToRemove.forEach((id) => {
+        const index = state.cartitem.findIndex((ele) => ele.id === id);
+        if (index !== -1) {
+          state.cartitem.splice(index, 1);
+        }
+      });
+    },
 
     addcartitemRedux: (state, action) => {
       const check = state.cartitem.some((ele) => {
@@ -32,11 +41,37 @@ const productslice = createSlice({
           { ...action.payload, quantity: 1, total: total },
         ];
       }
+      
       console.log(action.payload);
     },
+
+    incrqtyRedux:(state,action)=>{
+      const index=state.cartitem.findIndex(ele=>{return ele.id===action.payload})
+      let quantity =state.cartitem[index].quantity
+    let qtyincre=++quantity
+    state.cartitem[index].quantity=qtyincre
+    let Price =state.cartitem[index].price
+    state.cartitem[index].total=Price*qtyincre
+    },
+    decrqtyRedux:(state,action)=>{
+      const index=state.cartitem.findIndex(ele=>{return ele.id===action.payload})
+      let quantity =state.cartitem[index].quantity
+      if (quantity>1){
+        let qtydecre=--quantity
+    state.cartitem[index].quantity=qtydecre
+    let Price =state.cartitem[index].price
+    state.cartitem[index].total=Price*qtydecre
+
+      }
+    
+    },
+    
+    addOneProduct:(state,action)=>{
+      console.log(action.payload);
+      state.oneProduct=action.payload
+    }
   },
 });
 
-
-export const { productRedux ,removeRedux,addcartitemRedux,incrqtyRedux,decrqtyRedux} =productslice.actions;
+export const { productRedux, addcartitemRedux,addOneProduct,incrqtyRedux,decrqtyRedux,removeRedux } = productslice.actions;
 export default productslice.reducer;

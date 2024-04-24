@@ -5,8 +5,6 @@ import Footer from "./components/common/Footer";
 import { useDispatch } from "react-redux";
 import { productRedux } from "./redux/productsslice/productslice";
 import { useEffect } from "react";
-import Productscreen from "./screens/Productscreen";
-
 
 
 const App = () => {
@@ -24,13 +22,9 @@ const App = () => {
   return (
     <>
       <Header />
-      
       <Outlet />
       <Footer />
     
-    
-      
-      
     </>
   );
 };
