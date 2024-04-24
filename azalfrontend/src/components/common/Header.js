@@ -8,9 +8,10 @@ import { InputGroup } from "react-bootstrap";
 import { HiUser } from "react-icons/hi2";
 import { GoHeart } from "react-icons/go";
 import { BsHandbagFill } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Badge from "react-bootstrap/Badge";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutRedux } from "../../redux/userslice/userslice";
 
 const Header = () => {
   const [user, setUser] = useState(false);
@@ -18,15 +19,26 @@ const Header = () => {
   const userlogin = () => {
     setUser(!user);
   };
+  const logindetails = useSelector((state) => state.users);
+  console.log(logindetails);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const use = useSelector((state) => {
     return state.products.cartitem;
   });
-
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleLogin = () => {
     setIsLoggedIn(true);
+    userlogin();
+  };
+  const handlelogout = () => {
+    dispatch(logoutRedux());
+    setTimeout(() => {
+      setIsLoggedIn(false);
+      navigate("/login");
+    }, 1000);
   };
 
   const handleLogout = () => {
@@ -174,16 +186,16 @@ const Header = () => {
                       float: "right",
                     }}
                   >
-                    {user && (
+                    {logindetails.username ? (
+                      <Link className="btn-warning text-white fw-bold">
+                        <span onClick={handlelogout}>Logout</span>
+                      </Link>
+                    ) : (
                       <Link
                         to="/login"
                         className="btn-warning text-white fw-bold"
                       >
-                        {isLoggedIn ? (
-                          <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
-                        ) : (
-                          <span onClick={handleLogin}>Login</span>
-                        )}
+                        <span onClick={handleLogin}>Login</span>
                       </Link>
                     )}
                   </div>
