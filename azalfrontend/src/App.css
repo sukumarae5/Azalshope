@@ -180,7 +180,7 @@ p {
 .grid-container {
   margin: 0;
   padding: 0;
-  background-color: #1d2634;
+  /* background-color: #1d2634; */
   color: #9e9ea4;
   font-family: 'Montserrat', sans-serif;
 }
@@ -213,7 +213,7 @@ p {
   grid-template-areas:
     'sidebar header header header'
     'sidebar main main main';
-  height: 100vh;
+  height: fit-content;
 }
 
 /* Header  */
@@ -239,6 +239,8 @@ p {
   overflow-y: auto;
   transition: all 0.5s;
   -webkit-transition: all 0.5s;
+  overflow-y: hidden;
+  height: fit-content;
 }
 
 .sidebar-title {
@@ -325,7 +327,7 @@ p {
 }
 
 .card:first-child {
-  background-color: #2962ff;
+  /* background-color: #2962ff; */
 }
 
 .card:nth-child(2) {
@@ -385,7 +387,10 @@ p {
   }
 }
 /* Small <= 768px */
-  
+.sidebar::-webkit-scrollbar {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
   .main-cards {
     grid-template-columns: 1fr;

@@ -1,8 +1,13 @@
-import React from 'react'
+import React from "react";
+import { BsJustify } from "react-icons/bs";
 
-const Header = () => {
+const Header = ({ OpenSidebar }) => {
   return (
-    <div>Header</div>
+    <header className="header">
+      <div className="menu-icon">
+        <BsJustify className="icon" onClick={OpenSidebar} />
+      </div>
+    </header>
   )
 }
 

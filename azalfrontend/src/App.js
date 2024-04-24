@@ -2,9 +2,10 @@ import Header from "./components/common/Header";
 import { Outlet } from "react-router-dom";
 import Footer from "./components/common/Footer";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { productRedux } from "./redux/productsslice/productslice";
 import { useEffect } from "react";
+import Dashboard from "./dashboard/screens/Dashboard";
 // import Dashboard from "./dashboard/screens/Dashboard";
 
 const App = () => {
@@ -20,11 +21,25 @@ const App = () => {
     })();
   }, [dispatch]);
 
+  const user = useSelector((state) => state.users);
   return (
     <>
-      <Header />
-      <Outlet />
-      <Footer />
+      {user.username === "admin" ? (
+        <>
+          <Header />
+          <div className="d-flex flex-direction-column">
+          <Dashboard />
+          <Outlet />
+          </div>
+          <Footer />
+        </>
+      ) : (
+        <>
+          <Header />
+          <Outlet />
+          <Footer />
+        </>
+      )}
     </>
   );
 };
