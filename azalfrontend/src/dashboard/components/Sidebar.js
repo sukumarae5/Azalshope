@@ -25,6 +25,7 @@ const Sidebar = ({ openSidebarToggle, OpenSidebar }) => {
     <aside
     id="sidebar"
     className={openSidebarToggle ? "sidebar-responsive" : ""}
+    style={{width:'fit-content'}}
   >
     <div className="sidebar-title">
       <div className="sidebar-brand">
