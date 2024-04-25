@@ -31,12 +31,15 @@ const Products = () => {
 
   async function deleteItem(id) {
     try {
-      await fetch(`https://ecommerce-sandy-omega.vercel.app/deleteproduct/${id}`, {
-        method: "DELETE",
-        headers: {
-          "Content-type": "application/json",
-        },
-      });
+      await fetch(
+        `https://ecommerce-sandy-omega.vercel.app/deleteproduct/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-type": "application/json",
+          },
+        }
+      );
 
       // Dispatch action to update Redux state
       dispatch(deleteProductRedux(id));
@@ -92,7 +95,7 @@ const Products = () => {
           })}
         </tbody>
       </Table>
-      <div style={{ float: "right" }}>
+      <div style={{ float: "right" , marginRight:"20px"}}>
         <Pagination>
           <Pagination.Prev
             onClick={() =>
@@ -114,6 +117,9 @@ const Products = () => {
             }
           />
         </Pagination>
+      </div>
+      <div style={{ float: "left" ,marginLeft:'20px'}}>
+        <button className="btn btn-primary">Add Item</button>
       </div>
     </div>
   );
