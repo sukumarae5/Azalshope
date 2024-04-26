@@ -45,6 +45,7 @@ const Addproduct = ({ onAddItem }) => {
       image: baseImage,
       thumbnail: thumbnailImage,
     };
+    // eslint-disable-next-line no-unused-vars
     const fdata = await fetch(
       "https://ecommerce-sandy-omega.vercel.app/addproduct",
       {
