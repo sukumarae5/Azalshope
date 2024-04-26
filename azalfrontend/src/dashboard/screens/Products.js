@@ -11,13 +11,10 @@ const Products = () => {
   const pdata = useSelector((state) => state.products.allProducts);
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 13;
-
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = pdata.slice(indexOfFirstProduct, indexOfLastProduct);
-
   const totalPages = Math.ceil(pdata.length / productsPerPage);
-
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   const navigate = useNavigate();
@@ -28,7 +25,7 @@ const Products = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
+  
   async function deleteItem(id) {
     try {
       await fetch(
