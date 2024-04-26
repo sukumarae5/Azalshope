@@ -4,10 +4,12 @@ import Table from "react-bootstrap/Table";
 import { AiFillDelete } from "react-icons/ai";
 import Pagination from "react-bootstrap/Pagination";
 import { useNavigate } from "react-router-dom";
-import { deleteProductRedux } from "../../redux/productsslice/productslice";
+import { deleteProductRedux, updateProducts } from "../../redux/productsslice/productslice"; // Assuming you have an action for updating products in Redux
+import Addproduct from "../components/Addproduct";
 
 const Products = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const pdata = useSelector((state) => state.products.allProducts);
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 13;
@@ -17,7 +19,6 @@ const Products = () => {
   const totalPages = Math.ceil(pdata.length / productsPerPage);
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  const navigate = useNavigate();
   const admin = useSelector((state) => state.users);
   useEffect(() => {
     if (admin.username !== "admin") {
@@ -37,14 +38,17 @@ const Products = () => {
           },
         }
       );
-
-      // Dispatch action to update Redux state
       dispatch(deleteProductRedux(id));
-
       setCurrentPage(1); // Reset to first page after deletion
     } catch (e) {
       console.log(e);
     }
+  }
+
+  async function refreshTable() {
+    const response = await fetch("https://ecommerce-sandy-omega.vercel.app/products");
+    const data = await response.json();
+    dispatch(updateProducts(data));
   }
 
   return (
@@ -92,7 +96,7 @@ const Products = () => {
           })}
         </tbody>
       </Table>
-      <div style={{ float: "right" , marginRight:"20px"}}>
+      <div style={{ float: "right", marginRight: "20px" }}>
         <Pagination>
           <Pagination.Prev
             onClick={() =>
@@ -115,8 +119,8 @@ const Products = () => {
           />
         </Pagination>
       </div>
-      <div style={{ float: "left" ,marginLeft:'20px'}}>
-        <button className="btn btn-primary">Add Item</button>
+      <div style={{ float: "left", marginLeft: "20px", cursor: "pointer" }}>
+        <Addproduct onAddItem={refreshTable} />
       </div>
     </div>
   );
