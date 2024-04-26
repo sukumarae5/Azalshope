@@ -11,8 +11,8 @@ import { BsHandbagFill } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
 import Badge from "react-bootstrap/Badge";
 import { useDispatch, useSelector } from "react-redux";
-import { logoutRedux } from "../../redux/userslice/userslice";
-import Cartscreen from "../../screens/Cartscreen";
+import { logoutRedux } from "../../redux/userslice/userslice"
+
 
 const Header = () => {
   const [user, setUser] = useState(false);

@@ -59,16 +59,19 @@ const Cartscreen = () => {
       <div>
         <Row>
           <Col xs={8}>
-            <div className='d-flex flex-row justify-content-Around mt-3'>
+            <div className='d-flex flex-row justify-content-Around mt-3' >
               <Col xs={6}>
                 <div style={{ width: '100%', boxShadow: ' 1px 1px 1px 1px red', color: 'red', textAlign: 'center' }} ><h6>All {cartdata.length}</h6></div>
               </Col>
             </div>
             {cartdata.map((ele) => (
-              <Card style={{ width: '100%', boxShadow: ' 2px 2px 2px 2px #888888' }} className='mt-3' key={ele.id}>
-                <div className='d-flex flex-row justify-content-Around mt-3 mx-3'>
+              <Card style={{ width: '100%', boxShadow: ' 2px 2px 2px 2px #888888',backgroundColor:"white"}} className='mt-3' key={ele.id}>
+                <div className='d-flex flex-row justify-content-Around mt-3 mx-3' >
                   <div>
-                    <input type='checkbox' onClick={handleCheckboxChange} style={{ margin: '10px' }} />
+                    <input  onChange={()=>{
+                      handleCheckboxChange(ele.id)
+
+                    }} type='checkbox'  style={{ margin: '10px' }} />
                     <img
                       src={ele.image}
                       alt='Product'
