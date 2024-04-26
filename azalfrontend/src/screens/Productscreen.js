@@ -62,7 +62,7 @@ const Productscreen = () => {
                   <Col xs={9} md={10} lg={11}>
                     <img
                       src={thumbnailImage || product.thumbnail}
-                      alt="Main "
+                      alt="Main"
                       style={{ width: '100%', height: '80vh', paddingTop: '20px' }}
                     />
                   </Col>
