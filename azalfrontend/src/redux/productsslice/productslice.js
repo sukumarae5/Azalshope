@@ -4,7 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   allProducts: [],
   cartitem: [],
-  oneProduct:[],
+  oneProduct: [],
 };
 
 const productslice = createSlice({
@@ -66,12 +66,28 @@ const productslice = createSlice({
     
     },
     
-    addOneProduct:(state,action)=>{
+    
+    addOneProduct: (state, action) => {
       console.log(action.payload);
-      state.oneProduct=action.payload
-    }
+      state.oneProduct = action.payload;
+    },
+    updateProducts:(state,action) =>{
+      state.allProducts = action.payload
+    },
+    deleteProductRedux:(state, action) => {
+      state.allProducts = state.allProducts.filter(
+        (product) => product.id !== action.payload
+      );
+    },
   },
 });
 
-export const { productRedux, addcartitemRedux,addOneProduct,incrqtyRedux,decrqtyRedux,removeRedux } = productslice.actions;
+export const { incrqtyRedux,decrqtyRedux,removeRedux } = productslice.actions;
+export const {
+  productRedux,
+  addcartitemRedux,
+  addOneProduct,
+  updateProducts,
+  deleteProductRedux,
+} = productslice.actions;
 export default productslice.reducer;
