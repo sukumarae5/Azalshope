@@ -31,6 +31,8 @@ const Users = () => {
     });
     console.log("deleted");
     fetchData();
+    setCurrentPage(1);
+    
   }
 
   // Logic for displaying current users
@@ -82,7 +84,12 @@ const Users = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(finalusers),
       }
-    );
+    ).then((res) => res.json());
+
+    setAdmindata((prevData) => [...prevData, finalusers]);
+    handleClose();
+    alert("Product added successfully");
+    setCurrentPage(Math.ceil((admindata.length + 1) / usersPerPage));
   };
 
   const handleImageChange = async (e) => {
@@ -196,14 +203,15 @@ const Users = () => {
             backdrop="static"
             keyboard={false}
           >
-            <Modal.Header closeButton>
-              <Modal.Title> Add User Details</Modal.Title>
-            </Modal.Header>
+           <h1 style={{ fontFamily: "Times New Roman", textAlign: "center" }}>
+              Add User Details
+            </h1>
 
             <Modal.Body>
               <Form onSubmit={handleSubmit}>
                 <Form.Group as={Row} className="mb-3 my-4">
                   <Col sm="12">
+                    <center>
                     <div className="d-flex flex-direction-column">
                       <input
                         ref={fileInputRef}
@@ -212,8 +220,10 @@ const Users = () => {
                         // style={{ display: "none" }}
                         onChange={handleImageChange}
                         placeholder="image"
+                        required
                       />
                     </div>
+                    </center>
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row} className="mb-3 my-4">
@@ -225,7 +235,8 @@ const Users = () => {
                         onChange={handleChange}
                         type="text"
                         placeholder="firstName"
-                        style={{ paddingLeft: "40px", borderRadius: "10px" }}
+                        style={{  borderRadius: "10px", borderWidth:"3px" }}
+                        required
                       />
                     </div>
                   </Col>
@@ -239,7 +250,7 @@ const Users = () => {
                         onChange={handleChange}
                         type="text"
                         placeholder="lastName"
-                        style={{ paddingLeft: "40px", borderRadius: "10px" }}
+                        style={{  borderRadius: "10px", borderWidth:"3px" }}
                       />
                     </div>
                   </Col>
@@ -253,7 +264,8 @@ const Users = () => {
                         onChange={handleChange}
                         type="text"
                         placeholder="email"
-                        style={{ paddingLeft: "40px", borderRadius: "10px" }}
+                        style={{ borderRadius: "10px",borderWidth:"3px" }}
+                        required
                       />
                     </div>
                   </Col>
@@ -267,7 +279,8 @@ const Users = () => {
                         onChange={handleChange}
                         type="text"
                         placeholder="phone"
-                        style={{ paddingLeft: "40px", borderRadius: "10px" }}
+                        style={{ borderRadius: "10px",borderWidth:"3px" }}
+                        required
                       />
                     </div>
                   </Col>
@@ -281,7 +294,8 @@ const Users = () => {
                         onChange={handleChange}
                         type="text"
                         placeholder="username"
-                        style={{ paddingLeft: "40px", borderRadius: "10px" }}
+                        style={{  borderRadius: "10px",borderWidth:"3px" }}
+                        required
                       />
                     </div>
                   </Col>
@@ -295,7 +309,8 @@ const Users = () => {
                         onChange={handleChange}
                         type="text"
                         placeholder="password"
-                        style={{ paddingLeft: "40px", borderRadius: "10px" }}
+                        style={{ borderRadius: "10px",borderWidth:"3px" }}
+                        required
                       />
                     </div>
                   </Col>
@@ -309,7 +324,8 @@ const Users = () => {
                         onChange={handleChange}
                         type="text"
                         placeholder="confirmpassword"
-                        style={{ paddingLeft: "40px", borderRadius: "10px" }}
+                        style={{ borderRadius: "10px",borderWidth:"3px" }}
+                        required
                       />
                     </div>
                   </Col>
@@ -321,6 +337,7 @@ const Users = () => {
                   >
                     <Col>
                       <Form.Check
+                      inline
                         value="male"
                         type="radio"
                         label="Male"
@@ -328,18 +345,27 @@ const Users = () => {
                         id="male"
                         className="mr-3"
                         onChange={handleChange}
-                        style={{ color: "black" }}
+                        style={{ borderWidth:"10px",transform: "scale(1.0)" }}
+                        required
+                        variant="dark"
+
+                        
                       />
                     </Col>
                     <Col>
                       <Form.Check
+                      inline
                         value="female"
                         onChange={handleChange}
                         type="radio"
                         label="Female"
                         name="gender"
                         id="female"
-                        style={{ color: "black" }}
+                        style={{ borderWidth:"10px",
+                      }}
+                        required
+                        
+                        
                       />
                     </Col>
                   </Row>
@@ -354,7 +380,7 @@ const Users = () => {
                   <Button variant="secondary" onClick={handleClose}>
                     Close
                   </Button>
-                  <Button variant="primary" type="submit">
+                  <Button variant="primary" type="submit" style={{float:"right"}}>
                     Add User Data
                   </Button>
                 </Form.Group>
