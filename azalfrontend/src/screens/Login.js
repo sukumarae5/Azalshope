@@ -143,7 +143,7 @@ const Login = () => {
                     value={password}
                     placeholder="Password"
                     onChange={changefun}
-                    style={{ paddingLeft: "50px", borderRadius: "10px" }}
+                    style={{ paddingLeft: "40px", borderRadius: "10px" }}
                   />
                 </div>
               </Col>
