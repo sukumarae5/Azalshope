@@ -4,7 +4,6 @@ import { AiFillDelete } from "react-icons/ai";
 import { Button, Col, Row, Modal, Pagination } from "react-bootstrap";
 import Table from "react-bootstrap/Table";
 
-
 const Users = () => {
   const [admindata, setAdmindata] = useState([]);
 
@@ -30,9 +29,9 @@ const Users = () => {
       method: "DELETE",
     });
     console.log("deleted");
+    alert("User deleted successfully");
     fetchData();
     setCurrentPage(1);
-    
   }
 
   // Logic for displaying current users
@@ -88,7 +87,7 @@ const Users = () => {
 
     setAdmindata((prevData) => [...prevData, finalusers]);
     handleClose();
-    alert("Product added successfully");
+    alert("User details added successfully");
     setCurrentPage(Math.ceil((admindata.length + 1) / usersPerPage));
   };
 
@@ -112,7 +111,10 @@ const Users = () => {
   };
   return (
     <div style={{ width: "100%", overflowX: "auto", marginLeft: "-68px" }}>
-      <Table responsive striped bordered hover variant="dark">
+      
+      <Table responsive striped bordered hover variant="dark" style={{
+          width: "100%",
+        }} >
         <thead>
           <tr>
             <th>ID</th>
@@ -126,7 +128,7 @@ const Users = () => {
             <th></th>
           </tr>
         </thead>
-        <tbody>
+        <tbody >
           {currentUsers.map((e) => {
             return (
               <tr key={e.id}>
@@ -203,7 +205,7 @@ const Users = () => {
             backdrop="static"
             keyboard={false}
           >
-           <h1 style={{ fontFamily: "Times New Roman", textAlign: "center" }}>
+            <h1 style={{ fontFamily: "Times New Roman", textAlign: "center" }}>
               Add User Details
             </h1>
 
@@ -212,17 +214,17 @@ const Users = () => {
                 <Form.Group as={Row} className="mb-3 my-4">
                   <Col sm="12">
                     <center>
-                    <div className="d-flex flex-direction-column">
-                      <input
-                        ref={fileInputRef}
-                        type="file"
-                        name="image"
-                        // style={{ display: "none" }}
-                        onChange={handleImageChange}
-                        placeholder="image"
-                        required
-                      />
-                    </div>
+                      <div className="d-flex flex-direction-column">
+                        <input
+                          ref={fileInputRef}
+                          type="file"
+                          name="image"
+                          // style={{ display: "none" }}
+                          onChange={handleImageChange}
+                          placeholder="image"
+                          required
+                        />
+                      </div>
                     </center>
                   </Col>
                 </Form.Group>
@@ -235,7 +237,7 @@ const Users = () => {
                         onChange={handleChange}
                         type="text"
                         placeholder="firstName"
-                        style={{  borderRadius: "10px", borderWidth:"3px" }}
+                        style={{ borderRadius: "10px", borderWidth: "3px" }}
                         required
                       />
                     </div>
@@ -250,7 +252,7 @@ const Users = () => {
                         onChange={handleChange}
                         type="text"
                         placeholder="lastName"
-                        style={{  borderRadius: "10px", borderWidth:"3px" }}
+                        style={{ borderRadius: "10px", borderWidth: "3px" }}
                       />
                     </div>
                   </Col>
@@ -264,7 +266,7 @@ const Users = () => {
                         onChange={handleChange}
                         type="text"
                         placeholder="email"
-                        style={{ borderRadius: "10px",borderWidth:"3px" }}
+                        style={{ borderRadius: "10px", borderWidth: "3px" }}
                         required
                       />
                     </div>
@@ -279,7 +281,7 @@ const Users = () => {
                         onChange={handleChange}
                         type="text"
                         placeholder="phone"
-                        style={{ borderRadius: "10px",borderWidth:"3px" }}
+                        style={{ borderRadius: "10px", borderWidth: "3px" }}
                         required
                       />
                     </div>
@@ -294,7 +296,7 @@ const Users = () => {
                         onChange={handleChange}
                         type="text"
                         placeholder="username"
-                        style={{  borderRadius: "10px",borderWidth:"3px" }}
+                        style={{ borderRadius: "10px", borderWidth: "3px" }}
                         required
                       />
                     </div>
@@ -309,7 +311,7 @@ const Users = () => {
                         onChange={handleChange}
                         type="text"
                         placeholder="password"
-                        style={{ borderRadius: "10px",borderWidth:"3px" }}
+                        style={{ borderRadius: "10px", borderWidth: "3px" }}
                         required
                       />
                     </div>
@@ -324,7 +326,7 @@ const Users = () => {
                         onChange={handleChange}
                         type="text"
                         placeholder="confirmpassword"
-                        style={{ borderRadius: "10px",borderWidth:"3px" }}
+                        style={{ borderRadius: "10px", borderWidth: "3px" }}
                         required
                       />
                     </div>
@@ -337,7 +339,7 @@ const Users = () => {
                   >
                     <Col>
                       <Form.Check
-                      inline
+                        inline
                         value="male"
                         type="radio"
                         label="Male"
@@ -345,27 +347,22 @@ const Users = () => {
                         id="male"
                         className="mr-3"
                         onChange={handleChange}
-                        style={{ borderWidth:"10px",transform: "scale(1.0)" }}
+                        style={{ borderWidth: "10px", transform: "scale(1.0)"}}
                         required
                         variant="dark"
-
-                        
                       />
                     </Col>
                     <Col>
                       <Form.Check
-                      inline
+                        inline
                         value="female"
                         onChange={handleChange}
                         type="radio"
                         label="Female"
                         name="gender"
                         id="female"
-                        style={{ borderWidth:"10px",
-                      }}
+                        style={{ borderWidth: "10px" }}
                         required
-                        
-                        
                       />
                     </Col>
                   </Row>
@@ -380,7 +377,11 @@ const Users = () => {
                   <Button variant="secondary" onClick={handleClose}>
                     Close
                   </Button>
-                  <Button variant="primary" type="submit" style={{float:"right"}}>
+                  <Button
+                    variant="primary"
+                    type="submit"
+                    style={{ float: "right" }}
+                  >
                     Add User Data
                   </Button>
                 </Form.Group>
