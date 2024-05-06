@@ -78,7 +78,7 @@ const Cartscreen = () => {
                       width='130px' height='140px'
                     />
                   </div>
-                  <div>
+                  <div style={{marginLeft:"6%"}}>
                     <h6>Brand: {ele.brand} <br/> </h6>
                     <p>Title: {ele.title}</p>
                     <p>{ele.description}</p>
