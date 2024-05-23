@@ -11,7 +11,8 @@ import { BsHandbagFill } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
 import Badge from "react-bootstrap/Badge";
 import { useDispatch, useSelector } from "react-redux";
-import { logoutRedux } from "../../redux/userslice/userslice";
+import { logoutRedux } from "../../redux/userslice/userslice"
+
 
 const Header = () => {
   const [user, setUser] = useState(false);
@@ -157,7 +158,7 @@ const Header = () => {
               </InputGroup>
             </Form>
             <Nav className="mx-lg-4">
-              <Nav.Link className="text-white fs-lg-2 mx-lg-2">
+              <Nav.Link as={Link} to="/Cartscreen" className="text-white fs-lg-2 mx-lg-2">
                 <span className="icon-box">
                   <BsHandbagFill size={24} />
                 </span>
