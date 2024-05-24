@@ -14,6 +14,7 @@ const Homescreen = ({
   title,
   thumbnail,
   price,
+  stock,
 }) => {
   const data = useSelector((state) => state.products.allProducts);
   const dispatch = useDispatch();
@@ -146,6 +147,7 @@ const Homescreen = ({
                     title:item.title,
                     thumbnail:item.thumbnail,
                     price:item.price,
+                    stock:item.stock,
                   })
                 );
               }}

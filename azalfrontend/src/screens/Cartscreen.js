@@ -35,7 +35,7 @@ const Cartscreen = () => {
 
 
   return (
-    <div>
+    <div style={{backgroundColor:"#dfe3e3"}}>
       <Row>
         <div className='d-flex justify-content-flex-Around mx-2'>
           <Col sx={1}>
@@ -44,7 +44,7 @@ const Cartscreen = () => {
             </div>
           </Col>
           <Col sx={11}>
-            <div className='mx-3'>
+            <div className='mx-3 mt-1' >
               <InputGroup className='mb-1'>
                 <InputGroup.Text style={{ width: '7%', borderColor: '#93bbfa', borderWidth: '3px', borderRadiusLeft: '1px' }} id='basic-addon1' onClick={() => {}}>
                   <i style={{ position: 'relative', fontSize: '100%' }}><FaSearch /></i>
@@ -61,7 +61,7 @@ const Cartscreen = () => {
           <Col xs={8}>
             <div className='d-flex flex-row justify-content-Around mt-3' >
               <Col xs={6}>
-                <div style={{ width: '100%', boxShadow: ' 1px 1px 1px 1px red', color: 'red', textAlign: 'center' }} ><h6>All {cartdata.length}</h6></div>
+                <div style={{ width: '100%', boxShadow: ' 1px 1px 1px 1px red', color:'black', backgroundColor:"whitesmoke",textAlign: 'center' }} ><h6>All {cartdata.length}</h6></div>
               </Col>
             </div>
             {cartdata.map((ele) => (
@@ -75,34 +75,41 @@ const Cartscreen = () => {
                     <img
                       src={ele.image}
                       alt='Product'
-                      width='130px' height='140px'
+                      width='200px' height='200px'
                     />
                   </div>
                   <div style={{marginLeft:"6%"}}>
-                    <h6>Brand: {ele.brand} <br/> </h6>
-                    <p>Title: {ele.title}</p>
-                    <p>{ele.description}</p>
-                    <p><span><FaRupeeSign /></span><span style={{ color: 'red' }}>{ele.price}</span></p>
-                  </div>
-                  <div style={{ marginTop: '5%', marginLeft: '23%' }}>
+                    <h6> {ele.description} <br/> </h6>
+                    <p>( {ele.title})</p>
+                    
+                    <p style={{color:"green"}}>in stock</p>
+                    <p style={{fontSize:"15px"}}>Purchase Above <span ><FaRupeeSign /></span>1000 <br/>get FREE Deliver</p>
+                    
                     <p>
-                      <Button variant='info' onClick={() => { dispatch(incrqtyRedux(ele.id)) }}>+</Button>
+                      <Button style={{width:"30px",height:"30px",padding:"1px"}}variant='info' onClick={() => { dispatch(incrqtyRedux(ele.id)) }}>+</Button>
                       {ele.quantity}
-                      <Button variant='info' onClick={() => { dispatch(decrqtyRedux(ele.id)) }}>-</Button>
+                      <Button style={{width:"30px",height:"30px",padding:"1px"}} variant='info' onClick={() => { dispatch(decrqtyRedux(ele.id)) }}>-</Button>
                     </p>
+                    <p> Available stock {ele.stock}<span style={{color:"green",fontSize:"9px"}}> Only</span></p>
                   </div>
-                </div>
+                  <div style={{ color: 'black', marginLeft:"6%"}}><p>
+                    Price
+                  </p>
+                    <p><span><FaRupeeSign /></span><span style={{ color: 'black' }}>{ele.price}</span></p>
+                  </div>
+                  </div>
               </Card>
             ))}
           </Col>
           <Col sx={4}>
-            <div>
-              <Card style={{ width: '90%' }} className='mt-3 mx-9 p-2'>
+            <div style={{marginTop:"15%"}}> 
+              <Card style={{ width: '90%',height:"90%",boxShadow: ' 2px 2px 2px 2px #888888'}} className='mt-3 mx-9 p-2'>
                 <div>
-                  <h2>Cart Total:</h2>
-                  <p>Total Quantity: {cartdata.reduce((acc, ele) => acc + ele.quantity, 0)}</p>
-                  <p>Total Amount:<span><FaRupeeSign />{total}</span></p>
-                  <Button variant='danger'>Place Order</Button>
+                  <h2 style={{fontSize:"20px",marginLeft:"5%"}}>Sub Total({cartdata.reduce((acc, ele) => acc + ele.quantity, 0)}items):</h2>
+                  
+                  <p style={{marginLeft:"10%"}}>Total Amount:<span style={{fontSize:"20px",marginLeft:"0%"}}><FaRupeeSign />{total}.00</span></p>
+                  <p style={{fontSize:"17px",marginLeft:"10%"}}><input type="checkbox"/><span style={{marginLeft:"10px"}}>This order containes a gift</span></p>
+                  <Button variant='warning' style={{width:"350px",margin:"10px",height:"40px",borderRadius:"10px"}}>Proceed To Buy</Button>
                 </div>
               </Card>
             </div>
